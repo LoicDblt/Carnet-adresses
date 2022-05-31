@@ -23,9 +23,6 @@ body{
 	font-family: "Open Sans", Arial, sans-serif;
 	margin: 0;
 }
-img{
-	user-select: none;
-}
 
 /* Header */
 header{
@@ -34,12 +31,11 @@ header{
 	border-radius: 0 0 10px 10px;
 	box-shadow: 0px 15px 20px -15px #cecece;
 }
-
-	/* Box centrale */
 #boxCentre{
 	display: flex;
 	justify-content: center;
 	width: 45%;
+	margin: auto;
 }
 #boxCentre > img{
 	width: 390px;
@@ -47,13 +43,7 @@ header{
 	padding: 10px 0;
 	line-height: 98px;
 	text-align: center;
-}
-
-	/* Box droite et gauche */
-header::before,
-header::after{
-	content: "";
-	width: 27.5%;
+	user-select: none;
 }
 
 /* Corps */
@@ -72,7 +62,7 @@ h2{
 }
 h2{
 	font-size: 18px;
-	padding: 5px 0;
+	padding: 10px 0 5px 0;
 	border-width: 0 0 2px 0;
 }
 section{
@@ -98,25 +88,50 @@ section > section:first-child{
 }
 #tableauContacts{
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	width: 80%;
 	border: 2px solid #cecece;
 	border-radius: 5px;
 	height: calc(100vh - 118px - 40px - 60px - 61px - 4px);
 }
-#colonneGauche{
-	width: 50%;
-	height: 100%;
-}
+#colonneGauche,
 #colonneDroite{
-	width: 50%;
-	border-left: 2px solid #cecece;
+	width: calc(50% - 1px);
+	height: calc(100% - 33px);
+}
+input,
+input::placeholder,
+select,
+button{
+	font-family: "Open Sans", Arial, sans-serif;
+	width: 80%;
+	margin: 10px 0;
+	line-height: 30px;
+	text-align: center;
+}
+input:focus{
+	text-align: left; 
+}
+select{
+	height: calc(30px + 2px + 4px);
+}
+
+	/* Champs de recherche (haut) */
+#champsRecherche{
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #cecece;
+	line-height: 30px;
+	margin: 0;
+	padding-left: 5px;
 }
 
 	/* Liste contacts (gauche) */
 ul{
 	justify-content: center;
 	width: 80%;
+	margin: 0;
 	overflow-y: auto;
 }
 li{
@@ -124,8 +139,15 @@ li{
 }
 
 	/* Informations contact (droite) */
+#colonneDroite{
+	border-left: 2px solid #cecece;
+}
 #colonneDroite > form{
+	display: flex;
+	flex-direction: column;
 	width: 100%;
+	height: 100%;
+	justify-content: space-evenly;
 }
 #colonneDroite > form > div{
 	display: flex;
@@ -139,23 +161,14 @@ li{
 	justify-content: space-evenly;
 	width: 100%;
 }
-
-input,
-select{
-	width: 80%;
-	margin: 10px 0;
-	text-align: center;
-}
-
 #colonneDroite > form > div:last-child > input,
 #colonneDroite > form > div:last-child > button{
 	width: 30%;
+	height: 36px;
 }
 input.erreur{
 	background-color: rgba(255, 0, 0, 0.4);
 }
-
-
 
 /* Version ordinateur portable */
 @media only screen and (min-width: 1081px) and (max-width: 1440px){

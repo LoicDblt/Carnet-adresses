@@ -24,6 +24,7 @@
 	<section>
 		<h1>Mes contacts</h1>
 		<div id="tableauContacts">
+			<input id="champsRecherche" placeholder="&#128269; Rechercher un contact.."/>
 			<section id="colonneGauche">
 				<h2>Liste des contacts</h2>
 				<ul>
@@ -54,6 +55,7 @@
 					<li>Quentin</li>
 					<li>Quentin</li>
 				</ul>
+				<button>Ajouter un contact</button>
 			</section>
 			<section id="colonneDroite">
 				<h2>Informations du contact</h2>
