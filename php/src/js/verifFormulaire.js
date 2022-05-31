@@ -51,7 +51,7 @@ document.querySelector("form > div > input[type=submit]").addEventListener("clic
 	});
 
 	// Téléphone
-	let telInput = document.getElementById("telephone");
+	let telInput = document.getElementById("tel");
 	inputPreVerif(telInput, regexTel);
 	telInput.addEventListener("input", function(){
 		if (this.value.match(regexTel) == null){

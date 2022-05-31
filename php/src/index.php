@@ -59,7 +59,7 @@
 			</section>
 			<section id="colonneDroite">
 				<h2>Informations du contact</h2>
-				<form action="" method="POST" accept-charset="utf-8">
+				<form action="http://127.0.0.1/back/ajoutContact.php" method="POST" accept-charset="utf-8">
 					<div>
 						<label for="prenom">Prénom</label>
 						<input type="text" id="prenom" name="prenom" maxlength="100" placeholder="Prénom"/>
@@ -73,8 +73,8 @@
 						<input type="email" id="email" name="email" maxlength="100" placeholder="Adresse email"/>
 					</div>
 					<div>
-						<label for="telephone">Numéro de téléphone</label>
-						<input id="telephone" name="telephone" placeholder="Numéro de téléphone"></input>
+						<label for="tel">Numéro de téléphone</label>
+						<input id="tel" name="tel" placeholder="Numéro de téléphone"></input>
 					</div>
 					<div>
 						<label for="ville">Ville</label>
@@ -86,7 +86,7 @@
 						</select>
 					</div>
 					<div>
-						<button>Annuler</button>
+						<input type="reset" value="Annuler"/>
 						<input type="submit" value="Enregistrer"/>
 					</div>
 				</form>
