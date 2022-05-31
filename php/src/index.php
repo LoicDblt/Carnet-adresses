@@ -27,35 +27,37 @@
 			<input id="champsRecherche" placeholder="&#128269; Rechercher un contact.."/>
 			<section id="colonneGauche">
 				<h2>Liste des contacts</h2>
-				<ul>
-					<li>Patrick</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-					<li>Quentin</li>
-				</ul>
-				<button>Ajouter un contact</button>
+				<div>
+					<ul>
+						<li>Patrick</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+						<li>Quentin</li>
+					</ul>
+					<button>Ajouter un contact</button>
+				</div>
 			</section>
 			<section id="colonneDroite">
 				<h2>Informations du contact</h2>

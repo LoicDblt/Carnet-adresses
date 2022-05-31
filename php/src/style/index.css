@@ -120,25 +120,58 @@ select{
 	height: calc(30px + 2px + 4px);
 }
 
+input,
+button{
+	border: none;
+	background-color: #dadada;
+	transition: 0.3s;
+}
+button:hover,
+input:hover{
+	background-color: #cacaca;
+	transition: 0.3s;
+}
+button:active,
+input:active{
+	background-color: #b4b4b4;
+	transition: 0.3s;
+}
+input:hover:not(input[type=submit]):not(input[type=reset]),
+input:focus:not(input[type=submit]):not(input[type=reset]){
+	background-color: #bebebe;
+	transition: 0.3s;
+}
+
 	/* Champs de recherche (haut) */
 #champsRecherche{
 	width: 100%;
 	border: none;
-	border-bottom: 2px solid #cecece;
+	border-bottom: 2px solid #ececec;
 	line-height: 30px;
 	margin: 0;
 	border-radius: unset;
 }
 
 	/* Liste contacts (gauche) */
-ul{
-	justify-content: center;
+#colonneGauche > div{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
 	width: 80%;
+	height: calc(100% - 61px);
+}
+ul{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	width: 100%;
 	margin: 0;
 	overflow-y: auto;
 }
 li{
 	list-style-type: "- ";
+	width: 80%;
 }
 
 	/* Informations contact (droite) */
@@ -215,7 +248,6 @@ input.erreur{
 		/* Box centrale */
 	#boxCentre{
 		width: 100%;
-		order: 1;
 	}
 	#boxCentre > img{
 		width: 320px;
@@ -263,7 +295,44 @@ input.erreur{
 	h2{
 		border-image: radial-gradient(#ececec, #232224) 1;
 	}
-	section{
-		background-color: #333333;
+	section > section{
+		background-color: #232224;
+		box-shadow: 0 15px 20px -15px #131313;
 	}
+
+		/* Section tableau */
+	#tableauContacts,
+	select{
+		border: 2px solid #131313;
+	}
+
+		/* Champs de recherche (haut) */
+	input,
+	button{
+		background-color: #4e4c50;
+	}
+	button:hover,
+	input:hover{
+		background-color: #3d3c3f;
+
+	}
+	button:active,
+	input:active{
+		background-color: #302f31;
+	}
+	input:hover:not(input[type=submit]):not(input[type=reset]),
+	input:focus:not(input[type=submit]):not(input[type=reset]){
+		background-color: #302f31;
+		transition: 0.3s;
+	}
+
+	#champsRecherche{
+		border-bottom: 2px solid #131313;
+	}
+
+		/* Informations contact (droite) */
+	#colonneDroite{
+		border-left: 2px solid #131313;
+}
+
 }
