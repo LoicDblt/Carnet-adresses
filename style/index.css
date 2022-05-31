@@ -1,0 +1,204 @@
+/* Général */
+@font-face{
+	font-family: "Open Sans";
+	font-display: swap;
+	src: url("polices/open-sans-600.woff2") format("woff2"),
+		url("polices/open-sans-600.woff") format("woff");
+}
+*:focus,
+*:active{
+	-webkit-tap-highlight-color: transparent;
+	outline: none;
+}
+*{
+	scrollbar-color: #cdcdcd #f0f0f0;
+	scroll-behavior: smooth;
+	scrollbar-width: thin;
+}
+body{
+	display: flex;
+	flex-direction: column;
+	background-color: #f0f0f0;
+	color: #000000;
+	font-family: "Open Sans", Arial, sans-serif;
+	margin: 0;
+}
+img{
+	user-select: none;
+}
+
+/* Header */
+header{
+	display: flex;
+	background-color: #f9f9fb;
+	border-radius: 0 0 10px 10px;
+	box-shadow: 0px 15px 20px -15px #cecece;
+}
+
+	/* Box centrale */
+#boxCentre{
+	display: flex;
+	justify-content: center;
+	width: 45%;
+}
+#boxCentre > img{
+	width: 390px;
+	height: 98px;
+	padding: 10px 0;
+	line-height: 98px;
+	text-align: center;
+}
+
+	/* Box droite et gauche */
+header::before,
+header::after{
+	content: "";
+	width: 27.5%;
+}
+
+/* Corps */
+	/* Element parent */
+h1{
+	width: 70%;
+	margin-top: 0;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	font-size: 20px;
+	font-weight: normal;
+	text-align: center;
+	border-style: solid;
+	border-width: 0 0 4px 0;
+	border-image: radial-gradient(#000000, #ffffff) 1;
+}
+section{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+section > section{
+	display: flex;
+	flex-direction: column;
+	background-color: #ffffff;
+	width: 60vw;
+	margin-bottom: 20px;
+	padding: 30px 0;
+	align-items: center;
+	border-radius: 10px;
+	box-shadow: 0 15px 20px -15px #cecece;
+}
+section > div:last-child{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+	/* Section donnée actuelle */
+section > section:first-child{
+	margin-top: 20px;
+}
+section > section:first-child > p{
+	font-size: 36px;
+	margin: 0;
+}
+
+
+/* Version ordinateur portable */
+@media only screen and (min-width: 1081px) and (max-width: 1440px){
+	/* Corps */
+		/* Element parent */
+	section > section{
+		width: 65vw;
+	}
+}
+
+/* Version tablette */
+@media only screen and (min-width: 800px) and (max-width: 1080px){
+	/* Header */
+		/* Box centrale */
+	#boxCentre > img{
+		width: 350px;
+		height: 88px;
+		line-height: 88px;
+	}
+
+		/* Box droite */
+	#boxDroite > div:first-child > img{
+		width: 56px;
+		height: 56px;
+		line-height: 56px;
+	}
+
+	/* Corps */
+		/* Element parent */
+	section > section{
+		width: 90vw;
+	}
+}
+
+/* Version mobile */
+@media screen and (max-width: 799px){
+	/* Header */
+	header{
+		flex-wrap: wrap;
+		padding-bottom: 10px;
+	}
+
+		/* Box centrale */
+	#boxCentre{
+		width: 100%;
+		order: 1;
+	}
+	#boxCentre > img{
+		width: 320px;
+		height: 80px;
+		line-height: 80px;
+		padding: 15px 0 13px;
+	}
+
+	/* Corps */
+		/* Element parent */
+	h1{
+		width: 80%;
+		border-width: 0 0 3px 0;
+	}
+	section > section{
+		width: 98vw;
+		margin-bottom: 15px;
+	}
+
+		/* Section donnée actuelle */
+	section > section:first-child{
+		margin-top: 15px;
+	}
+	section > section:first-child > p{
+		font-size: 36px;
+	}
+}
+
+/* Version sombre */
+@media (prefers-color-scheme: dark){
+	/* Général */
+	*{
+		scrollbar-color: #1a1a1a #333333;
+	}
+	body{
+		background-color: #333333;
+		color: #bfbfbf;
+	}
+
+	/* Header */
+	header{
+		background-color: #010101;
+		z-index: 1;
+		box-shadow: 0 15px 20px -15px #131313;
+	}
+
+	/* Corps */
+		/* Element parent */
+	h1{
+		border-image: radial-gradient(#ececec, #232224) 1;
+	}
+	section{
+		background-color: #333333;
+	}
+}
