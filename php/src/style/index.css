@@ -57,8 +57,8 @@ header::after{
 }
 
 /* Corps */
-	/* Element parent */
-h1{
+h1,
+h2{
 	width: 70%;
 	margin-top: 0;
 	margin-bottom: 20px;
@@ -69,6 +69,11 @@ h1{
 	border-style: solid;
 	border-width: 0 0 4px 0;
 	border-image: radial-gradient(#000000, #ffffff) 1;
+}
+h2{
+	font-size: 18px;
+	padding: 5px 0;
+	border-width: 0 0 2px 0;
 }
 section{
 	display: flex;
@@ -86,26 +91,75 @@ section > section{
 	border-radius: 10px;
 	box-shadow: 0 15px 20px -15px #cecece;
 }
-section > div:last-child{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
 
-	/* Section donnée actuelle */
+	/* Section tableau */
 section > section:first-child{
 	margin-top: 20px;
 }
-section > section:first-child > p{
-	font-size: 36px;
-	margin: 0;
+#tableauContacts{
+	display: flex;
+	justify-content: center;
+	width: 80%;
+	border: 2px solid #cecece;
+	border-radius: 5px;
+	height: calc(100vh - 118px - 40px - 60px - 61px - 4px);
 }
+#colonneGauche{
+	width: 50%;
+	height: 100%;
+}
+#colonneDroite{
+	width: 50%;
+	border-left: 2px solid #cecece;
+}
+
+	/* Liste contacts (gauche) */
+ul{
+	justify-content: center;
+	width: 80%;
+	overflow-y: auto;
+}
+li{
+	list-style-type: "- ";
+}
+
+	/* Informations contact (droite) */
+#colonneDroite > form{
+	width: 100%;
+}
+#colonneDroite > form > div{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#colonneDroite > form > div:last-child{
+	margin-top: 20px;
+	flex-direction: row;
+	justify-content: space-evenly;
+	width: 100%;
+}
+
+input,
+select{
+	width: 80%;
+	margin: 10px 0;
+	text-align: center;
+}
+
+#colonneDroite > form > div:last-child > input,
+#colonneDroite > form > div:last-child > button{
+	width: 30%;
+}
+input.erreur{
+	background-color: rgba(255, 0, 0, 0.4);
+}
+
 
 
 /* Version ordinateur portable */
 @media only screen and (min-width: 1081px) and (max-width: 1440px){
 	/* Corps */
-		/* Element parent */
 	section > section{
 		width: 65vw;
 	}
@@ -121,15 +175,7 @@ section > section:first-child > p{
 		line-height: 88px;
 	}
 
-		/* Box droite */
-	#boxDroite > div:first-child > img{
-		width: 56px;
-		height: 56px;
-		line-height: 56px;
-	}
-
 	/* Corps */
-		/* Element parent */
 	section > section{
 		width: 90vw;
 	}
@@ -156,7 +202,6 @@ section > section:first-child > p{
 	}
 
 	/* Corps */
-		/* Element parent */
 	h1{
 		width: 80%;
 		border-width: 0 0 3px 0;
@@ -166,12 +211,9 @@ section > section:first-child > p{
 		margin-bottom: 15px;
 	}
 
-		/* Section donnée actuelle */
+		/* Section tableau */
 	section > section:first-child{
 		margin-top: 15px;
-	}
-	section > section:first-child > p{
-		font-size: 36px;
 	}
 }
 
@@ -194,8 +236,8 @@ section > section:first-child > p{
 	}
 
 	/* Corps */
-		/* Element parent */
-	h1{
+	h1,
+	h2{
 		border-image: radial-gradient(#ececec, #232224) 1;
 	}
 	section{
