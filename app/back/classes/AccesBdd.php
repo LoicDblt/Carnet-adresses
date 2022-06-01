@@ -48,9 +48,24 @@ class AccesBdd{
 			$this->erreur = $exception->getMessage();
 		}
 	}
+
 	public function recupererContacts(){
 		try{
-			$statement = $this->pdo->prepare("SELECT nom, prenom FROM informations");
+			$statement = $this->pdo->prepare("SELECT prenom, nom FROM informations");
+			$statement->execute();
+			return json_encode($statement->fetchAll());
+		}catch (Exception $exception){
+			$this->erreur = $exception->getMessage();
+		}
+	}
+
+	public function recupererInfos(string $prenom, string $nom){
+		$contact = new Contact();
+		try{
+			$contact->contactTemporaire($prenom, $nom);
+			$statement = $this->pdo->prepare("SELECT prenom, nom, email, tel, ville  FROM informations WHERE prenom = :prenom AND nom = :nom");
+			$statement->bindValue("prenom", $contact->getPrenom());
+			$statement->bindValue("nom", $contact->getNom());
 			$statement->execute();
 			return json_encode($statement->fetchAll());
 		}catch (Exception $exception){

@@ -100,4 +100,15 @@ class Contact{
 			$this->erreur = $exception->getMessage();
 		}
 	}
+	public function contactTemporaire(
+		string $prenom,
+		string $nom
+	){
+		try{
+			$this->setPrenom($prenom);
+			$this->setNom($nom);
+		}catch (Exception $exception){
+			$this->erreur = $exception->getMessage();
+		}
+	}
 }
