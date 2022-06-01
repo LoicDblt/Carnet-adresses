@@ -24,7 +24,10 @@
 	<section>
 		<h1>Mes contacts</h1>
 		<div id="tableauContacts">
-			<input id="champsRecherche" placeholder="🔎 Rechercher un contact.."/>
+			<form id="champsRecherche">
+				<label for="recherche">Adresse email</label>
+				<input type="text" id="recherche" name="recherche" placeholder="🔎 Rechercher un contact.."/>
+			</form>
 			<section id="colonneGauche">
 				<h2>Liste des contacts</h2>
 				<div>
@@ -51,7 +54,7 @@
 					</div>
 					<div>
 						<label for="tel">Numéro de téléphone</label>
-						<input id="tel" name="tel" placeholder="Numéro de téléphone"></input>
+						<input id="tel" name="tel" placeholder="Numéro de téléphone"/>
 					</div>
 					<div>
 						<label for="ville">Ville</label>
@@ -62,7 +65,7 @@
 							<option value="marseille">Marseille</option>
 						</select>
 					</div>
-					<input type="hidden" id="id" name="id"></input>
+					<input type="hidden" id="id" name="id"/>
 					<div>
 						<input type="reset" value="Annuler"/>
 						<input type="submit" value="Enregistrer"/>
@@ -72,6 +75,7 @@
 		</div>
 	</section>
 </section>
+<script src="js/barreRecherches.js"></script>
 <script src="js/verifFormulaire.js"></script>
 <script src="js/afficherContacts.js"></script>
 <script src="js/index.js"></script>

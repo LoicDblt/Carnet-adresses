@@ -15,28 +15,38 @@ function erreurContacts(idCible, messageErreur){
 }
 
 function afficherFormMasquerP(){
-	$(document.querySelector("form")).css("display", "flex");
+	$(document.querySelector("#colonneDroite > form")).css("display", "flex");
 	$(document.querySelector("#colonneDroite > p")).hide();
 }
 
 function masquerFormAfficherP(){
-	$(document.querySelector("form")).hide();
+	$(document.querySelector("#colonneDroite > form")).hide();
 	$(document.querySelector("#colonneDroite > p")).show();
 }
 
-function recupererEtAfficherContacts(){
+function recupererEtAfficherContacts(valeurRecherche){
+	if (valeurRecherche != undefined)
+		document.getElementById("listeContacts").innerHTML = "";
+
 	let messageErreur = "Oups ! Il semble il y avoir une erreur de notre côté... 🤨";
 	let idCible = "listeContacts";
 	let fichierBackRecupContacts = "recupererListeContacts.php";
-	fetch("/back/" + fichierBackRecupContacts)
+	fetch("/back/" + fichierBackRecupContacts, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json; charset=UTF-8"
+		},
+		body: JSON.stringify({recherche: valeurRecherche}),
+	})
 	.then(reponse => {
 		reponse.json()
 			.then(jsonContacts => {
 				let nombreContacts = Object.keys(jsonContacts).length;
 				if (nombreContacts === 0)
 					erreurContacts(idCible, "Il n'y a aucun contact... mais n'hésitez pas à en ajouter ! 😉");
-				else
+				else{
 					afficherContacts(jsonContacts);
+				}
 			})
 			.catch(erreur => {
 				erreurContacts(idCible, messageErreur);
@@ -92,7 +102,7 @@ document.getElementById("listeContacts").addEventListener("click", event => {
 
 document.getElementById("ajouterContact").addEventListener("click", () => {
 	afficherFormMasquerP();
-	document.querySelector("form").reset(); 
+	document.querySelector("#colonneDroite > form").reset(); 
 });
 
 document.querySelector("input[type=reset]").addEventListener("click", () => {

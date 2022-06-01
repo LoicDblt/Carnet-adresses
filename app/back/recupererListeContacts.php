@@ -5,7 +5,12 @@ error_reporting(E_ALL);
 
 include_once "classes/Bdd.php";
 
-$bdd = new RecupererInfos("admin", "ryvkVDu0aJbv");
+$bdd = new InformationsBdd("admin", "ryvkVDu0aJbv");
 $bdd->initialiserTable();
 
-echo $bdd->recupererContacts();
+$arguments = json_decode(file_get_contents("php://input"), true);
+
+if (array_key_exists("recherche", $arguments))
+	echo $bdd->rechercherContacts($arguments["recherche"]);
+else
+	echo $bdd->recupererContacts();

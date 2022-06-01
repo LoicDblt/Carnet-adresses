@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 include_once "classes/Bdd.php";
 
-$bdd = new ModifierInfos("admin", "ryvkVDu0aJbv");
+$bdd = new ModificationsBdd("admin", "ryvkVDu0aJbv");
 
 if (is_numeric($_POST["id"])){
 	try{

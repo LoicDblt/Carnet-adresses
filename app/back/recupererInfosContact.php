@@ -5,6 +5,6 @@ error_reporting(E_ALL);
 
 include_once "classes/Bdd.php";
 
-$bdd = new RecupererInfos("admin", "ryvkVDu0aJbv");
+$bdd = new InformationsBdd("admin", "ryvkVDu0aJbv");
 
 echo $bdd->recupererInfos($_POST["prenom"], $_POST["nom"]);

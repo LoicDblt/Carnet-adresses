@@ -1,4 +1,4 @@
-document.querySelector("form > div > input[type=submit]").addEventListener("click", event => {
+document.querySelector("#colonneDroite > form > div > input[type=submit]").addEventListener("click", event => {
 	event.preventDefault();
 	let erreurForm = false;
 
@@ -68,5 +68,5 @@ document.querySelector("form > div > input[type=submit]").addEventListener("clic
 
 	// Si tous les tests sont validés, on envoie au back
 	if (erreurForm == false)
-		document.querySelector("form").submit();
-})
+		document.querySelector("#colonneDroite > form").submit();
+});

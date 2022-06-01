@@ -17,18 +17,20 @@ class Bdd{
 	}
 
 	public function initialiserTable(){
-		$this->pdo->query("CREATE TABLE IF NOT EXISTS informations (
-			id SERIAL PRIMARY KEY,
-			prenom TEXT NOT NULL,
-			nom TEXT NOT NULL,
-			email TEXT NOT NULL,
-			tel VARCHAR(10) NOT NULL,
-			ville VARCHAR(10) NOT NULL
-		)");
+		$this->pdo->query(
+			"CREATE TABLE IF NOT EXISTS informations (
+				id SERIAL PRIMARY KEY,
+				prenom TEXT NOT NULL,
+				nom TEXT NOT NULL,
+				email TEXT NOT NULL,
+				tel VARCHAR(10) NOT NULL,
+				ville VARCHAR(10) NOT NULL
+			)"
+		);
 	}
 }
 
-class ModifierInfos extends Bdd{
+class ModificationsBdd extends Bdd{
 	public function insererContact(
 		string $prenom,
 		string $nom,
@@ -87,7 +89,7 @@ class ModifierInfos extends Bdd{
 	}
 }
 
-class RecupererInfos extends Bdd{
+class InformationsBdd extends Bdd{
 	public function recupererContacts(){
 		try{
 			$statement = $this->pdo->prepare("SELECT prenom, nom FROM informations");
@@ -106,9 +108,30 @@ class RecupererInfos extends Bdd{
 				"SELECT *
 				FROM informations
 				WHERE prenom = :prenom
-					AND nom = :nom");
+					AND nom = :nom"
+			);
 			$statement->bindValue("prenom", $contact->getPrenom());
 			$statement->bindValue("nom", $contact->getNom());
+			$statement->execute();
+			return json_encode($statement->fetchAll());
+		}catch (Exception $exception){
+			$this->erreur = $exception->getMessage();
+		}
+	}
+
+	public function rechercherContacts(string $valeurRecherche){
+		try{
+			$statement = $this->pdo->prepare(
+				"SELECT prenom, nom
+				FROM informations
+				WHERE
+					prenom LIKE CONCAT('%', :valeurRecherche, '%') OR
+					nom LIKE CONCAT('%', :valeurRecherche, '%') OR
+					email LIKE CONCAT('%', :valeurRecherche, '%') OR
+					tel LIKE CONCAT('%', :valeurRecherche, '%') OR
+					ville LIKE CONCAT('%', :valeurRecherche, '%')"
+			);
+			$statement->bindValue("valeurRecherche", $valeurRecherche);
 			$statement->execute();
 			return json_encode($statement->fetchAll());
 		}catch (Exception $exception){
