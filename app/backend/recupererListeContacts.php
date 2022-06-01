@@ -8,9 +8,7 @@ include_once "classes/Bdd.php";
 $bdd = new InformationsBdd("admin", "ryvkVDu0aJbv");
 $bdd->initialiserTable();
 
-$arguments = json_decode(file_get_contents("php://input"), true);
-
-if (array_key_exists("recherche", $arguments))
-	echo $bdd->rechercherContacts($arguments["recherche"]);
+if ($_POST["recherche"] != "undefined")
+	echo $bdd->rechercherContacts($_POST["recherche"]);
 else
 	echo $bdd->recupererContacts();

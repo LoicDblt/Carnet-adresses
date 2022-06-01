@@ -228,7 +228,8 @@ p{
 	width: 30%;
 	text-align: center;
 }
-input.erreur{
+input.erreur,
+select.erreur{
 	background-color: rgba(255, 0, 0, 0.4);
 }
 #nom{

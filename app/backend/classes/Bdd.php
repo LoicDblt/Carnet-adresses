@@ -8,8 +8,10 @@ class Bdd{
 		string $password
 	){
 		try{
-			$this->pdo = new PDO("mysql:host=localhost;dbname=contacts", $username, $password);
-			$this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+			$this->pdo = new PDO("mysql:host=localhost;dbname=contacts",
+				$username, $password);
+			$this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,
+				PDO::FETCH_ASSOC);
 			$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}catch (PDOExcexption $exception){
 			$this->erreur = $exception->getMessage();
@@ -92,7 +94,10 @@ class ModificationsBdd extends Bdd{
 class InformationsBdd extends Bdd{
 	public function recupererContacts(){
 		try{
-			$statement = $this->pdo->prepare("SELECT prenom, nom FROM informations");
+			$statement = $this->pdo->prepare(
+				"SELECT prenom, nom
+				FROM informations"
+			);
 			$statement->execute();
 			return json_encode($statement->fetchAll());
 		}catch (Exception $exception){

@@ -3,10 +3,10 @@
 include_once "classes/Bdd.php";
 
 class Contact{
-	private const VILLES_CONNUES = ["Paris", "Lyon", "Marseille"];
 	private const REGEX_INPUT = "#^[\S\s]{1,}$#";
 	private const REGEX_EMAIL = "#^[a-z0-9-_.]+@[a-z0-9-_.]+\.[a-z]{2,}$#";
 	private const REGEX_TEL = "#^(\+33|0)[0-9]{9}$#";
+	private const VILLES_CONNUES = ["Paris", "Lyon", "Marseille"];
 
 	public function getPrenom() : string {
 		return $this->prenom;
