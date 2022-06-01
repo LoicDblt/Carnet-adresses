@@ -61,7 +61,7 @@
 			</section>
 			<section id="colonneDroite">
 				<h2>Informations du contact</h2>
-				<form action="http://127.0.0.1/back/ajoutContact.php" method="POST" accept-charset="utf-8">
+				<form action="/back/ajoutContact.php" method="POST" accept-charset="utf-8">
 					<div>
 						<label for="prenom">Prénom</label>
 						<input type="text" id="prenom" name="prenom" maxlength="100" placeholder="Prénom"/>
