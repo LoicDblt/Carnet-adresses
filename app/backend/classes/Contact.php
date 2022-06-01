@@ -100,7 +100,7 @@ class Contact{
 			$this->erreur = $exception->getMessage();
 		}
 	}
-	public function contactTemporaire(
+	public function nouveauContactRecherche(
 		string $prenom,
 		string $nom
 	){

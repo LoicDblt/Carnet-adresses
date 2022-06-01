@@ -1,3 +1,12 @@
+function afficherFormMasquerP(){
+	$(document.querySelector("#colonneDroite > form")).css("display", "flex");
+	$(document.querySelector("#colonneDroite > p")).hide();
+}
+function masquerFormAfficherP(){
+	$(document.querySelector("#colonneDroite > form")).hide();
+	$(document.querySelector("#colonneDroite > p")).show();
+}
+
 function afficherContacts(jsonContacts){
 	for (var personne of jsonContacts){
 		let ul = document.getElementById("listeContacts");
@@ -7,22 +16,11 @@ function afficherContacts(jsonContacts){
 		ul.appendChild(li);
 	}
 }
-
 function messageErreurContact(idCible, messageErreur){
 	let ul = document.getElementById(idCible);
 	let p = document.createElement("p");
 	p.appendChild(document.createTextNode(messageErreur));
 	ul.appendChild(p);
-}
-
-function afficherFormMasquerP(){
-	$(document.querySelector("#colonneDroite > form")).css("display", "flex");
-	$(document.querySelector("#colonneDroite > p")).hide();
-}
-
-function masquerFormAfficherP(){
-	$(document.querySelector("#colonneDroite > form")).hide();
-	$(document.querySelector("#colonneDroite > p")).show();
 }
 
 function recupererEtAfficherContacts(valeurRecherche){
@@ -34,10 +32,8 @@ function recupererEtAfficherContacts(valeurRecherche){
 	let idCible = "listeContacts";
 	let fichierBackendRecupContacts = "recupererListeContacts.php";
 
-
 	let donneesPost = new FormData();
 	donneesPost.append("recherche", valeurRecherche);
-
 
 	fetch("/backend/" + fichierBackendRecupContacts, {
 		method: "POST",
@@ -68,6 +64,7 @@ function recupererInfosContact(prenom, nom){
 	let messageErreur = "Oups ! Il semble il y avoir une erreur de notre côté" +
 		" ... 🤨";
 	let fichierBackendRecupInfos = "recupererInfosContact.php";
+
 	let donneesPost = new FormData();
 	donneesPost.append("prenom", prenom);
 	donneesPost.append("nom", nom);
@@ -94,14 +91,14 @@ function recupererInfosContact(prenom, nom){
 				masquerFormAfficherP();
 				document.querySelector("#colonneDroite > p:nth-child(2)")
 					.innerText = messageErreur;
-				console.log(fichierBackendRecupInfos, ":" , erreur)
+				console.log(fichierBackendRecupInfos, ":" , erreur);
 			})
 	})
 	.catch(erreur => {
 		masquerFormAfficherP();
 		document.querySelector("#colonneDroite > p:nth-child(2)")
 			.innerText = messageErreur;
-		console.log(fichierBackendRecupInfos, ":" , erreur)
+		console.log(fichierBackendRecupInfos, ":" , erreur);
 	})
 }
 

@@ -108,7 +108,7 @@ class InformationsBdd extends Bdd{
 	public function recupererInfos(string $prenom, string $nom){
 		$contact = new Contact();
 		try{
-			$contact->contactTemporaire($prenom, $nom);
+			$contact->nouveauContactRecherche($prenom, $nom);
 			$statement = $this->pdo->prepare(
 				"SELECT *
 				FROM informations

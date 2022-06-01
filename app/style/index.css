@@ -75,7 +75,7 @@ section > section{
 	flex-direction: column;
 	background-color: #ffffff;
 	width: 60vw;
-	margin-bottom: 20px;
+	margin: 20px 0;
 	padding: 30px 0;
 	align-items: center;
 	border-radius: 10px;
@@ -83,9 +83,6 @@ section > section{
 }
 
 	/* Section tableau */
-section > section:first-child{
-	margin-top: 20px;
-}
 #tableauContacts{
 	display: flex;
 	flex-wrap: wrap;
@@ -100,6 +97,12 @@ section > section:first-child{
 	width: calc(50% - 1px);
 	height: calc(100% - 52px);
 }
+p{
+	width: 100%;
+	text-align: center;
+}
+
+	/* Entrées */
 input,
 input::placeholder,
 select,
@@ -113,19 +116,12 @@ button{
 	border: 1px solid #cecece;
 	border-radius: 5px;
 }
-input:focus{
-	text-align: left;
-}
-select{
-	height: calc(30px + 2px) !important;
-	border: none;
-	padding: 0;
-}
-
 input,
-button{
+button,
+select{
 	border: none;
 	background-color: #dadada;
+	color: #000000;
 	transition: 0.3s;
 }
 button:hover,
@@ -149,6 +145,14 @@ button,
 select{
 	cursor: pointer;
 	height: 36px;
+}
+input:focus{
+	text-align: left;
+}
+select{
+	height: calc(30px + 2px) !important;
+	border: none;
+	padding: 0;
 }
 
 	/* Champs de recherche (haut) */
@@ -178,7 +182,7 @@ select{
 	width: 80%;
 	height: calc(100% - 61px);
 }
-ul{
+#listeContacts{
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -187,7 +191,7 @@ ul{
 	margin: 0;
 	overflow-y: auto;
 }
-li{
+#listeContacts > li{
 	list-style-type: "- ";
 	width: max-content;
 	max-width: calc(100% - 20px - 2px);
@@ -195,10 +199,6 @@ li{
 	padding: 5px 1px;
 	cursor: pointer;
 	word-wrap: break-word;
-}
-p{
-	width: 100%;
-	text-align: center;
 }
 
 	/* Informations contact (droite) */
@@ -285,16 +285,27 @@ select.erreur{
 	/* Corps */
 	h1{
 		width: 80%;
-		border-width: 0 0 3px 0;
 	}
 	section > section{
 		width: 98vw;
-		margin-bottom: 15px;
 	}
 
 		/* Section tableau */
-	section > section:first-child{
-		margin-top: 15px;
+	#tableauContacts{
+		flex-direction: column;
+		height: unset;
+	}
+	#colonneGauche,
+	#colonneDroite{
+		width: 100%;
+		height: 60vh;
+	}
+	#colonneGauche{
+		border-bottom: 2px solid #ececec;
+	}
+	#colonneDroite{
+		border: none;
+		overflow-y: auto;
 	}
 }
 
@@ -327,15 +338,16 @@ select.erreur{
 	}
 
 		/* Section tableau */
-	#tableauContacts,
-	select{
+	#tableauContacts{
 		border: 2px solid #131313;
 	}
 
-		/* Champs de recherche (haut) */
+		/* Entrées */
 	input,
-	button{
+	button,
+	select{
 		background-color: #4e4c50;
+		color: #bfbfbf;
 	}
 	button:hover,
 	input:hover{
@@ -351,7 +363,8 @@ select.erreur{
 		background-color: #302f31;
 		transition: 0.3s;
 	}
-
+	
+	/* Champs de recherche (haut) */
 	#champsRecherche{
 		border-bottom: 2px solid #131313;
 	}
@@ -359,6 +372,5 @@ select.erreur{
 		/* Informations contact (droite) */
 	#colonneDroite{
 		border-left: 2px solid #131313;
-}
-
+	}
 }
