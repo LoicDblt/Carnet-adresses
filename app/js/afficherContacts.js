@@ -14,7 +14,8 @@ function erreurContacts(messageErreur){
 	ul.appendChild(p);
 }
 
-function recupereEtAfficherContacts(){
+function recupererEtAfficherContacts(){
+	let messageErreur = "Oups ! Il semble il y avoir une erreur de notre côté... 🤨";
 	let fichierBackRecupContacts = "recupererListeContacts.php";
 	fetch("/back/" + fichierBackRecupContacts)
 	.then(reponse => {
@@ -28,14 +29,29 @@ function recupereEtAfficherContacts(){
 					afficherContacts(jsonContacts);
 			})
 			.catch(erreur => {
-				erreurContacts("Oups ! Il semble il y avoir une erreur de notre côté... 🤨");
+				erreurContacts(messageErreur);
 				console.log(fichierBackRecupContacts, ":" ,erreur)
 			})
 	})
 	.catch(erreur => {
-		console.log(erreur);
+		erreurContacts(messageErreur);
+		console.log(fichierBackRecupContacts, ":" ,erreur)
 	})
 }
 
 
-recupereEtAfficherContacts();
+document.getElementById("listeContacts").addEventListener("click", event => {
+	if (event.target && event.target.matches("li")){
+		console.log(event.target.innerText);
+	}
+});
+
+document.getElementById("ajouterContact").addEventListener("click", () => {
+	$(document.querySelector("form")).css("display", "flex");
+	$(document.querySelector("#colonneDroite > p")).hide();
+});
+
+document.querySelector("input[type=reset]").addEventListener("click", () => {
+	$(document.querySelector("form")).hide();
+	$(document.querySelector("#colonneDroite > p")).show();
+});

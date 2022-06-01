@@ -8,7 +8,7 @@ class Contact{
 	private const REGEX_EMAIL = "#^[a-z0-9-_.]+@[a-z0-9-_.]+\.[a-z]{2,}$#";
 	private const REGEX_TEL = "#^(\+33|0)[0-9]{9}$#";
 
-	public function getPrenom() : string { 
+	public function getPrenom() : string {
 		return $this->prenom;
 	}
 	public function getNom() : string {

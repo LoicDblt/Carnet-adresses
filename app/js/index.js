@@ -10,3 +10,5 @@ if (
 		console.log("Service worker - enregistrement echoué :", erreur);
 	})
 }
+
+recupererEtAfficherContacts();
