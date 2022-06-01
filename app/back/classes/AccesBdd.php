@@ -9,6 +9,8 @@ class AccesBdd{
 	){
 		try{
 			$this->pdo = new PDO("mysql:host=localhost;dbname=contacts", $username, $password);
+			$this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+			$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}catch (PDOExcexption $exception){
 			$this->erreur = $exception->getMessage();
 		}
@@ -42,6 +44,15 @@ class AccesBdd{
 			$statement->bindValue("tel", $contact->getTel());
 			$statement->bindValue("ville", $contact->getVille());
 			$statement->execute();
+		}catch (Exception $exception){
+			$this->erreur = $exception->getMessage();
+		}
+	}
+	public function recupererContacts(){
+		try{
+			$statement = $this->pdo->prepare("SELECT nom, prenom FROM informations");
+			$statement->execute();
+			return json_encode($statement->fetchAll());
 		}catch (Exception $exception){
 			$this->erreur = $exception->getMessage();
 		}

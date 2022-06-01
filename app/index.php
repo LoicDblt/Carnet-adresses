@@ -24,37 +24,11 @@
 	<section>
 		<h1>Mes contacts</h1>
 		<div id="tableauContacts">
-			<input id="champsRecherche" placeholder="&#128269; Rechercher un contact.."/>
+			<input id="champsRecherche" placeholder="🔎 Rechercher un contact.."/>
 			<section id="colonneGauche">
 				<h2>Liste des contacts</h2>
 				<div>
-					<ul>
-						<li>Patrick</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
-						<li>Quentin</li>
+					<ul id="listeContacts">
 					</ul>
 					<button>Ajouter un contact</button>
 				</div>
@@ -98,5 +72,7 @@
 </section>
 <script src="js/index.js"></script>
 <script src="js/verifFormulaire.js"></script>
+<script src="js/afficherContacts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

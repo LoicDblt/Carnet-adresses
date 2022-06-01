@@ -166,12 +166,18 @@ ul{
 	flex-direction: column;
 	align-items: flex-end;
 	width: 100%;
+	padding: 0;
 	margin: 0;
 	overflow-y: auto;
 }
 li{
 	list-style-type: "- ";
 	width: 80%;
+	margin: 10px 0;
+}
+p{
+	width: 100%;
+	text-align: center;
 }
 
 	/* Informations contact (droite) */
