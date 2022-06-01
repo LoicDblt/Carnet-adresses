@@ -36,7 +36,7 @@
 			<section id="colonneDroite">
 				<h2>Informations du contact</h2>
 				<p>💡Sélectionnez un contact pour afficher ses informations</p>
-				<form action="/back/ajoutContact.php" method="POST" accept-charset="utf-8">
+				<form action="/back/ajouterModifierContact.php" method="POST" accept-charset="utf-8">
 					<div>
 						<label for="prenom">Prénom</label>
 						<input type="text" id="prenom" name="prenom" maxlength="100" placeholder="Prénom"/>
@@ -62,6 +62,7 @@
 							<option value="marseille">Marseille</option>
 						</select>
 					</div>
+					<input type="hidden" id="id" name="id"></input>
 					<div>
 						<input type="reset" value="Annuler"/>
 						<input type="submit" value="Enregistrer"/>

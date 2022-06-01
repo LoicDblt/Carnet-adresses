@@ -51,7 +51,6 @@ function recupererEtAfficherContacts(){
 
 function recupererInfosContact(prenom, nom){
 	let messageErreur = "Oups ! Il semble il y avoir une erreur de notre côté... 🤨";
-	let idCible = "colonneDroite";
 	let fichierBackRecupInfos = "recupererInfosContact.php";
 	var formData = new FormData();
 	formData.append("prenom", prenom);
@@ -68,6 +67,7 @@ function recupererInfosContact(prenom, nom){
 					document.getElementById("email").value = infos.email;
 					document.getElementById("tel").value = infos.tel;
 					document.getElementById("ville").value = infos.ville.toLowerCase();
+					document.getElementById("id").value = infos.id;
 				}
 			})
 			.catch(erreur => {
@@ -92,6 +92,7 @@ document.getElementById("listeContacts").addEventListener("click", event => {
 
 document.getElementById("ajouterContact").addEventListener("click", () => {
 	afficherFormMasquerP();
+	document.querySelector("form").reset(); 
 });
 
 document.querySelector("input[type=reset]").addEventListener("click", () => {

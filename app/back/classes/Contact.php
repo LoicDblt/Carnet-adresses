@@ -1,6 +1,6 @@
 <?php
 
-include_once "classes/AccesBDD.php";
+include_once "classes/Bdd.php";
 
 class Contact{
 	private const VILLES_CONNUES = ["Paris", "Lyon", "Marseille"];
