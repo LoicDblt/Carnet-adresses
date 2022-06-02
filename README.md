@@ -1,7 +1,9 @@
 # Carnet d'adresses
 
 ## **Présentation**
-Gestionnaire de contacts permettant d'afficher, ajouter ou modifier un contact existant.  
+Ce projet est un gestionnaire de contacts permettant d'ajouter des contacts en complétant différentes informations,
+puis les afficher, ou les modifier. 
+
 Les informations enregistrables sont :
 * Prénom
 * Nom
@@ -13,5 +15,5 @@ Les informations enregistrables sont :
 Afin de créer le Docker associé au projet, il suffit de lancer le script ```lancerDocker.sh```, qui s'occupera
 de mettre en place PHP, MySQL et phpMyAdmin .  
 
-Par la suite, il faudra lancer le container, et accéder à l'adresse ```127.0.0.1``` dans un navigateur internet.  
-Aussi, il est possible d'accéder à phpMyAdmin en se connactant à l'adresse ```127.0.0.1/phpmyadmin```.
+Ainsi, il sera possible d'accéder au site dans un navigateur internet, à l'adresse ```127.0.0.1```.  
+En outre, il est possible d'accéder à phpMyAdmin en se connectant à l'adresse ```127.0.0.1/phpmyadmin```.
