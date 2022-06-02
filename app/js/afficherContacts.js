@@ -51,12 +51,12 @@ function recupererEtAfficherContacts(valeurRecherche){
 			})
 			.catch(erreur => {
 				messageErreurContact(idCible, messageErreur);
-				console.log(fichierBackendRecupContacts, ":" , erreur)
+				console.log(fichierBackendRecupContacts + " : " + erreur);
 			})
 	})
 	.catch(erreur => {
 		messageErreurContact(idCible, messageErreur);
-		console.log(fichierBackendRecupContacts, ":" , erreur)
+		console.log(fichierBackendRecupContacts + " : " + erreur);
 	})
 }
 
@@ -91,14 +91,14 @@ function recupererInfosContact(prenom, nom){
 				masquerFormAfficherP();
 				document.querySelector("#colonneDroite > p:nth-child(2)")
 					.innerText = messageErreur;
-				console.log(fichierBackendRecupInfos, ":" , erreur);
+				console.log(fichierBackendRecupInfos + " : " + erreur);
 			})
 	})
 	.catch(erreur => {
 		masquerFormAfficherP();
 		document.querySelector("#colonneDroite > p:nth-child(2)")
 			.innerText = messageErreur;
-		console.log(fichierBackendRecupInfos, ":" , erreur);
+		console.log(fichierBackendRecupInfos + " : " + erreur);
 	})
 }
 
@@ -116,10 +116,10 @@ document.querySelector("#champsRecherche > input").addEventListener("input",
 
 document.getElementById("ajouterContact").addEventListener("click", () => {
 	afficherFormMasquerP();
-	document.querySelector("#colonneDroite > form").reset(); 
+	document.querySelector("#colonneDroite > form").reset();
 });
 document.querySelector("input[type=reset]").addEventListener("click", () => {
-	document.querySelector("#colonneDroite > p:nth-child(2)").innerText = 
+	document.querySelector("#colonneDroite > p:nth-child(2)").innerText =
 		"💡Sélectionnez un contact pour afficher ses information";
 	masquerFormAfficherP();
 });

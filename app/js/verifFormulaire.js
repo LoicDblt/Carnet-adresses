@@ -7,7 +7,7 @@ document.querySelector("#colonneDroite > form > div > input[type=submit]")
 	const regexTexte = /^[\S\s]{1,}$/;
 	const regexEmail = /^[a-z0-9-_.]+@[a-z0-9-_.]+\.[a-z]{1,}$/;
 	const regexTel = /^(\+33|0)[0-9]{9}$/;
-	const villes_connues = ["paris", "lyon", "marseille"]
+	const villes_connues = ["paris", "lyon", "marseille"];
 
 	const inputPostVerifTexte = function(){
 		if (this.value.match(regexTexte) == null){

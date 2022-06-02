@@ -7,8 +7,8 @@ include_once "classes/Bdd.php";
 
 $bdd = new ModificationsBdd("admin", "ryvkVDu0aJbv");
 
-if (is_numeric($_POST["id"])){
-	try{
+try{
+	if (is_numeric($_POST["id"])){
 		$bdd->modifierContact(
 			$_POST["prenom"],
 			$_POST["nom"],
@@ -17,13 +17,8 @@ if (is_numeric($_POST["id"])){
 			$_POST["ville"],
 			$_POST["id"]
 		);
-	}catch (Exception $exception){
-		var_dump($this->$erreur);
-		die();
 	}
-}
-else{
-	try{
+	else{
 		$bdd->insererContact(
 			$_POST["prenom"],
 			$_POST["nom"],
@@ -31,10 +26,10 @@ else{
 			$_POST["tel"],
 			$_POST["ville"]
 		);
-	}catch (Exception $exception){
-		var_dump($this->$erreur);
-		die();
 	}
+}catch (Exception $exception){
+	var_dump($this->$erreur);
+	die();
 }
 
 header("Location: ../");
