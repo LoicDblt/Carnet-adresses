@@ -7,18 +7,21 @@ include_once "classes/Bdd.php";
 
 $bdd = new ModificationsBdd("admin", "ryvkVDu0aJbv");
 
+
 try{
-	if (is_numeric($_POST["id"])){
+	if (is_numeric($_POST["idContact"])){
+		echo "modif";
 		$bdd->modifierContact(
 			$_POST["prenom"],
 			$_POST["nom"],
 			$_POST["email"],
 			$_POST["tel"],
 			$_POST["ville"],
-			$_POST["id"]
+			$_POST["idContact"]
 		);
 	}
 	else{
+		echo "ajout";
 		$bdd->insererContact(
 			$_POST["prenom"],
 			$_POST["nom"],

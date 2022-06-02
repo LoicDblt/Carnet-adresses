@@ -6,7 +6,7 @@ class Contact{
 	private const REGEX_INPUT = "#^[\S\s]{1,}$#";
 	private const REGEX_EMAIL = "#^[a-z0-9-_.]+@[a-z0-9-_.]+\.[a-z]{2,}$#";
 	private const REGEX_TEL = "#^(\+33|0)[0-9]{9}$#";
-	private const VILLES_CONNUES = ["Paris", "Lyon", "Marseille"];
+	private const VILLES_CONNUES = ["paris", "lyon", "marseille"];
 
 	public function getPrenom() : string {
 		return $this->prenom;
@@ -24,9 +24,6 @@ class Contact{
 		return $this->ville;
 	}
 
-	public function getVillesConnues() : array {
-		return self::VILLES_CONNUES;
-	}
 	public function getRegexInput() : string {
 		return self::REGEX_INPUT;
 	}
@@ -35,6 +32,9 @@ class Contact{
 	}
 	public function getRegexTel() : string {
 		return self::REGEX_TEL;
+	}
+	public function getVillesConnues() : array {
+		return self::VILLES_CONNUES;
 	}
 
 	public function setPrenom(string $prenom){
@@ -74,7 +74,7 @@ class Contact{
 		}
 	}
 	public function setVille(string $ville){
-		$ville = ucwords(htmlspecialchars($ville));
+		$ville = htmlspecialchars($ville);
 		if (in_array($ville, Contact::getVillesConnues())){
 			$this->ville = $ville;
 		}

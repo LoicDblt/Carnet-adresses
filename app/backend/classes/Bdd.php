@@ -25,8 +25,8 @@ class Bdd{
 				prenom TEXT NOT NULL,
 				nom TEXT NOT NULL,
 				email TEXT NOT NULL,
-				tel VARCHAR(10) NOT NULL,
-				ville VARCHAR(10) NOT NULL
+				tel VARCHAR(12) NOT NULL,
+				ville VARCHAR(9) NOT NULL
 			)"
 		);
 	}
@@ -71,11 +71,11 @@ class ModificationsBdd extends Bdd{
 			$contact->nouveauContact($prenom, $nom, $email, $tel, $ville);
 			$statement = $this->pdo->prepare(
 				"UPDATE informations
-				SET prenom=:prenom,
-					nom=:nom,
-					email=:email,
-					tel=:tel,
-					ville=:ville
+				SET prenom = :prenom,
+					nom = :nom,
+					email = :email,
+					tel = :tel,
+					ville = :ville
 				WHERE id = :id"
 			);
 			$statement->bindValue("prenom", $contact->getPrenom());
@@ -105,15 +105,16 @@ class InformationsBdd extends Bdd{
 		}
 	}
 
-	public function recupererInfos(string $prenom, string $nom){
+	public function recupererInfosContact(string $prenom, string $nom){
 		$contact = new Contact();
 		try{
 			$contact->nouveauContactRecherche($prenom, $nom);
 			$statement = $this->pdo->prepare(
 				"SELECT *
 				FROM informations
-				WHERE prenom = :prenom
-					AND nom = :nom"
+				WHERE
+					prenom = :prenom AND
+					nom = :nom"
 			);
 			$statement->bindValue("prenom", $contact->getPrenom());
 			$statement->bindValue("nom", $contact->getNom());
@@ -124,7 +125,7 @@ class InformationsBdd extends Bdd{
 		}
 	}
 
-	public function rechercherContacts(string $valeurRecherche){
+	public function rechercherContact(string $valeurRecherche){
 		try{
 			$statement = $this->pdo->prepare(
 				"SELECT prenom, nom

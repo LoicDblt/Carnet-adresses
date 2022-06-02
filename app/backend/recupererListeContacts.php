@@ -9,6 +9,6 @@ $bdd = new InformationsBdd("admin", "ryvkVDu0aJbv");
 $bdd->initialiserTable();
 
 if ($_POST["recherche"] != "undefined")
-	echo $bdd->rechercherContacts($_POST["recherche"]);
+	echo $bdd->rechercherContact($_POST["recherche"]);
 else
 	echo $bdd->recupererContacts();

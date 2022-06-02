@@ -16,8 +16,8 @@ function afficherContacts(jsonContacts){
 		ul.appendChild(li);
 	}
 }
-function messageErreurContact(idCible, messageErreur){
-	let ul = document.getElementById(idCible);
+function messageErreurContact(idCibleMessageErreur, messageErreur){
+	let ul = document.getElementById(idCibleMessageErreur);
 	let p = document.createElement("p");
 	p.appendChild(document.createTextNode(messageErreur));
 	ul.appendChild(p);
@@ -29,7 +29,7 @@ function recupererEtAfficherContacts(valeurRecherche){
 
 	let messageErreur = "Oups ! Il semble il y avoir une erreur de notre côté" +
 		"... 🤨";
-	let idCible = "listeContacts";
+	let idCibleMessageErreur = "listeContacts";
 	let fichierBackendRecupContacts = "recupererListeContacts.php";
 
 	let donneesPost = new FormData();
@@ -44,18 +44,18 @@ function recupererEtAfficherContacts(valeurRecherche){
 			.then(jsonContacts => {
 				let nombreContacts = Object.keys(jsonContacts).length;
 				if (nombreContacts === 0)
-					messageErreurContact(idCible, "Il n'y a aucun contact... " +
+					messageErreurContact(idCibleMessageErreur, "Il n'y a aucun contact... " +
 						"mais n'hésitez pas à en ajouter ! 😉");
 				else
 					afficherContacts(jsonContacts);
 			})
 			.catch(erreur => {
-				messageErreurContact(idCible, messageErreur);
+				messageErreurContact(idCibleMessageErreur, messageErreur);
 				console.log(fichierBackendRecupContacts + " : " + erreur);
 			})
 	})
 	.catch(erreur => {
-		messageErreurContact(idCible, messageErreur);
+		messageErreurContact(idCibleMessageErreur, messageErreur);
 		console.log(fichierBackendRecupContacts + " : " + erreur);
 	})
 }
@@ -82,9 +82,8 @@ function recupererInfosContact(prenom, nom){
 					document.getElementById("nom").value = infos.nom;
 					document.getElementById("email").value = infos.email;
 					document.getElementById("tel").value = infos.tel;
-					document.getElementById("ville").value = infos.ville
-						.toLowerCase();
-					document.getElementById("id").value = infos.id;
+					document.getElementById("ville").value = infos.ville;
+					document.getElementById("idContact").value = infos.id;
 				}
 			})
 			.catch(erreur => {
@@ -117,6 +116,7 @@ document.querySelector("#champsRecherche > input").addEventListener("input",
 document.getElementById("ajouterContact").addEventListener("click", () => {
 	afficherFormMasquerP();
 	document.querySelector("#colonneDroite > form").reset();
+	document.getElementById("idContact").value = "";
 });
 document.querySelector("input[type=reset]").addEventListener("click", () => {
 	document.querySelector("#colonneDroite > p:nth-child(2)").innerText =
