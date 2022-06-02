@@ -43,7 +43,8 @@
 			<section id="colonneDroite">
 				<h2>Informations du contact</h2>
 				<p>💡Sélectionnez un contact pour afficher ses informations</p>
-				<form action="/backend/ajouterModifierContact.php" method="POST" accept-charset="utf-8">
+				<form action="/backend/ajouterModifierContact.php" method="POST"
+					accept-charset="utf-8">
 					<div>
 						<label for="prenom">Prénom</label>
 						<input type="text" id="prenom" name="prenom"
@@ -89,7 +90,8 @@
 <script src="js/afficherContacts.js"></script>
 <script src="js/index.js"></script>
 <script
-src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

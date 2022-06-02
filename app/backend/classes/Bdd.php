@@ -64,7 +64,7 @@ class ModificationsBdd extends Bdd{
 		string $email,
 		string $tel,
 		string $ville,
-		int $id
+		int $idContact
 	){
 		$contact = new Contact();
 		try{
@@ -76,14 +76,14 @@ class ModificationsBdd extends Bdd{
 					email = :email,
 					tel = :tel,
 					ville = :ville
-				WHERE id = :id"
+				WHERE id = :idContact"
 			);
 			$statement->bindValue("prenom", $contact->getPrenom());
 			$statement->bindValue("nom", $contact->getNom());
 			$statement->bindValue("email", $contact->getEmail());
 			$statement->bindValue("tel", $contact->getTel());
 			$statement->bindValue("ville", $contact->getVille());
-			$statement->bindValue("id", $id);
+			$statement->bindValue("idContact", $idContact);
 			$statement->execute();
 		}catch (Exception $exception){
 			$this->erreur = $exception->getMessage();
